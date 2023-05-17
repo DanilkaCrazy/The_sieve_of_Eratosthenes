@@ -9,8 +9,11 @@
 ### Программная реализация на языке С++
 
 #include <iostream>
+    
 #include <vector>
+    
 using namespace std;
+    
 
 void eratosthenes_sieve(int n) {
     vector<bool> prime(n+1, true);
@@ -31,12 +34,19 @@ void eratosthenes_sieve(int n) {
 }
 
 int main() {
+                         
     int n;
+                         
     cout << "Enter a number: ";
+            
     cin >> n;
+    
     cout << "Prime numbers less than or equal to " << n << " are: ";
+    
     eratosthenes_sieve(n);
+    
     return 0;
+    
 }
   
 ### Результат
