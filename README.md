@@ -8,3 +8,43 @@
 
 ### Программная реализация на языке С++
 
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void eratosthenes_sieve(int n) {
+    vector<bool> prime(n+1, true);
+
+    for (int i = 2; i*i <= n; i++) {
+        if (prime[i]) {
+            for (int j = i*i; j <= n; j += i) {
+                prime[j] = false;
+            }
+        }
+    }
+
+    for (int i = 2; i <= n; i++) {
+        if (prime[i]) {
+            cout << i << " ";
+        }
+    }
+}
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    cout << "Prime numbers less than or equal to " << n << " are: ";
+    eratosthenes_sieve(n);
+    return 0;
+}
+  
+### Результат
+  
+  ![Screenshot_1](https://github.com/DanilkaCrazy/The_sieve_of_Eratosthenes/assets/95550202/3b405003-df1b-4a8e-bbd7-bb056f9fe4f3)
+  
+### Объяснение работы программы
+  
+  В этом примере функция eratosthenes_sieve применяет решето Эратосфена к целому числу n. Она начинает с создания вектора с булевыми значениями, которые начинаются как истина для всех чисел от 2 до n. Затем она перебирает числа от 2 до корня из n, и если число простое, то помечает все кратные ему числа как непростые. Наконец, она выводит все простые числа в диапазоне от 2 до n.
+
+В функции main пользователь вводит целое число n, а затем вызывается функция eratosthenes_sieve с аргументом n, чтобы вывести все простые числа, меньшие или равные n.
